@@ -1,4 +1,5 @@
 export * from './post.entity'
+export { Nullable } from './nullable'
 export { BaseEntity } from './base.entity'
 export { UserEntity } from './user.entity'
 export { Query, Request } from './request.model'

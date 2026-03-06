@@ -1,3 +1,4 @@
+import styles from './styles.module.scss'
 import { InputHTMLAttributes } from "react";
 /**
  * @param props InputHTMLAttributes<HTMLInputElement>
@@ -5,5 +6,5 @@ import { InputHTMLAttributes } from "react";
  */
 export default function Input
 (props: InputHTMLAttributes<HTMLInputElement>) {
-    return <input {...props}/>
+    return <input className={`${styles.input} ${props?.className}`} {...props}/>
 }

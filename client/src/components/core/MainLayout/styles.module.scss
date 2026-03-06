@@ -1,0 +1,16 @@
+.container {
+    width: 100dvw;
+    display: flex;
+    max-width: 100dvw;
+    min-height: 100dvh;
+    
+    &__content {
+        gap: 16px;
+        left: 8px;
+        display: flex;
+        position: relative;
+        align-items: center;
+        flex-direction: column;
+        width: calc(100% - 16px);
+    }
+}

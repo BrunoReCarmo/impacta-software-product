@@ -1,0 +1,27 @@
+$dark-background-color: #171c1f;
+$dark-container-color: #0A0C02;
+$dark-card-color: #21292d;
+$dark-text-primary-color: rgb(255, 255, 255);
+$dark-text-primary-ghost-color: rgb(152, 167, 181);
+$dark-text-secondary-color: rgb(152, 167, 181);
+$dark-divider-color: rgb(21, 23, 23);
+$dark-box-shadow-color: rgba(255, 255, 255, 0.1);
+
+$dark-primary-color: #B8ED42;
+$dark-secondary-color: rgba(255, 80, 70, 1);
+$dark-ghost-color: rgba(184, 237, 66, 0.1);
+$dark-error-contrast-color: rgb(255, 255, 255);
+
+@mixin dark-theme {
+  --primary-color: #{$dark-primary-color};
+  --secondary-color: #{$dark-secondary-color};
+  --ghost-color: #{$dark-ghost-color};
+  --background-color: #{$dark-background-color};
+  --container-color: #{$dark-container-color};
+  --card-color: #{$dark-card-color};
+  --text-primary-color: #{$dark-text-primary-color};
+  --text-secondary-color: #{$dark-text-secondary-color};
+  --divider-color: #{$dark-divider-color};
+  --box-shadow-color: #{$dark-box-shadow-color};
+  --error-contrast-color: #{$dark-error-contrast-color};
+}

@@ -1,0 +1,23 @@
+.input {
+    width: 100%;
+    padding: 8px;
+    height: $box-height;
+    border-radius: $border-radius;
+    border-color: 1px solid $divider-color;
+
+    gap: 8px;
+    all: unset;
+    width: 100%;
+    cursor: pointer;
+    padding: 0 16px;
+    font-size: 14px;
+    font-weight: 600;
+    position: relative;
+    height: $box-height;
+    pointer-events: all;
+    box-sizing: border-box;
+    color: $primary-contrast-text;
+    border-radius: $border-radius;
+    background-color: $primary-color;
+    transition: all 0.25s ease-in-out;
+}

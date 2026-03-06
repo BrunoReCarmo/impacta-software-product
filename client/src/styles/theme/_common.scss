@@ -1,0 +1,88 @@
+// Breakpoints
+$breakpoint-sm: 576px;
+$breakpoint-md: 809px;
+$breakpoint-lg: 1024px;
+$breakpoint-xl: 1200px;
+
+// Define variables for border radius and box shadow
+$border-radius: 4px;
+
+// Spacing
+$spacing-unit: 8px;
+
+// Define mixins for media queries
+@mixin media-phone {
+  @media (max-width: $breakpoint-sm) {
+    @content;
+  }
+}
+
+@mixin media-tablet {
+  @media (max-width: $breakpoint-md) {
+    @content;
+  }
+}
+
+@mixin media-desktop {
+  @media (max-width: $breakpoint-lg) {
+    @content;
+  }
+}
+
+@mixin media-large-desktop {
+  @media (max-width: $breakpoint-xl) {
+    @content;
+  }
+}
+
+@mixin lighen($percentage: 0%) {
+  filter: brightness(calc(100%) + $percentage);
+}
+
+@mixin darken($percentage: 0%) {
+  filter: brightness(calc(100%) - $percentage);
+}
+@mixin useErrorBg {
+}
+
+@mixin useWarningBg {
+}
+
+@mixin useSuccessBg {
+}
+
+@mixin usePrimaryBg {
+}
+
+@mixin useSecondaryBg {
+}
+
+@mixin usePaperBg {
+}
+
+@mixin useDefaultBg {
+}
+
+@mixin section {
+  position: relative;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0px 24px;
+  padding-top: 100px;
+}
+
+@mixin hide-scrollbar {
+  &::-webkit-scrollbar {
+    display: none !important;
+  }
+
+  &::-webkit-scrollbar-track {
+    display: none !important;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    display: none !important;
+  }
+}

@@ -1,0 +1,24 @@
+@import 'common';
+@import 'light-theme';
+@import 'dark-theme';
+@import 'fontFamily';
+@import 'skeleton';
+
+$primary-color: var(--primary-color);
+$secondary-color: var(--secondary-color);
+$primary-ghost-color: var(--ghost-color);
+$background-default: var(--background-color);
+$background-paper: var(--container-color);
+$card-color: var(--card-color);
+$text-primary: var(--text-primary-color);
+$text-primary-ghost: var(--text-primary-ghost-color);
+$text-secondary: var(--text-secondary-color);
+$divider-color: var(--divider-color);
+$box-shadow: var(--box-shadow-color);
+$border-radius: 8px;
+$box-height: 40px;
+$primary-contrast-text: var(--text-primary-color);
+$error-color: red;
+$success-color: green;
+$warning-color: orange;
+$error-contrast-color: var(--error-contrast-color);

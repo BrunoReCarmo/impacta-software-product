@@ -1,0 +1,30 @@
+$light-primary-color: #B8ED42;
+$light-secondary-color: rgba(255, 80, 70, 1);
+$light-ghost-color: rgba(184, 237, 66, 0.1);
+
+$light-background-color: #fefefe;
+$light-container-color: #0A0C02;
+$light-card-color: #FFFFFF;
+
+$light-text-primary-color: rgb(24, 24, 24);
+$light-text-primary-ghost-color: rgb(152, 167, 181);
+$light-text-secondary-color: rgb(152, 167, 181);
+$light-background-nav: rgba(255, 255, 255, 0.88);
+
+$light-divider-color: #fff5ee2e;
+$light-box-shadow-color: rgba(245, 245, 245, 1);
+$light-error-contrast-color: rgb(24, 24, 24);
+
+@mixin light-theme {
+  --primary-color: #{$light-primary-color};
+  --secondary-color: #{$light-secondary-color};
+  --ghost-color: #{$light-ghost-color};
+  --background-color: #{$light-background-color};
+  --container-color: #{$light-container-color};
+  --text-primary-color: #{$light-text-primary-color};
+  --text-secondary-color: #{$light-text-secondary-color};
+  --divider-color: #{$light-divider-color};
+  --box-shadow-color: #{$light-box-shadow-color};
+  --error-contrast-color: #{$light-error-contrast-color};
+  --card-color: #{$light-card-color};
+}

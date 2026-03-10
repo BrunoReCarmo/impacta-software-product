@@ -22,5 +22,5 @@ export function useLogin(externalSuccess: VoidFunction) {
     onError,
   });
 
-  return { mutate, error, isLoading: isPending };
+  return { mutate, error, isPending };
 }

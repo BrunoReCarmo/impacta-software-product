@@ -1,0 +1,22 @@
+.tab {
+    padding: 16PX;
+    font-size: 14px;
+    cursor: pointer;
+    font-weight: 600;
+    color: $text-primary;
+    transition: all 0.3s ease-in;
+    border-radius: $border-radius;
+    background-color: $card-color;
+    border: 1px solid $divider-color;
+    
+    &:hover {
+        transition: all 0.3s ease-in;
+        background-color: $divider-color;
+    }
+
+    &--isActive {
+        background-color: $primary-color;
+        color: $primary-contrast-text;
+    }
+
+}

@@ -10,7 +10,7 @@ export async function fetchLogin({
     const headers = BackendApiConfig.headers;
 
   const response = await axios.post<string>(
-    `${api}/iam/register`,
+    `${api}/iam/login`,
     {
       email,
       password,

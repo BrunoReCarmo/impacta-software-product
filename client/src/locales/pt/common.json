@@ -2,5 +2,6 @@
     "see_passwd": "Exibir senha",
     "sign_in": "Entrar",
     "sign_up": "Criar uma conta",
-    "name": "Nome"
+    "name": "Nome",
+    "welcome": "Bem-vindo(a), <span>{{ value }}</span>"
 }

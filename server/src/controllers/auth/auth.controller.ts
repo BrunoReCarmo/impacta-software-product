@@ -1,11 +1,13 @@
 import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
-import { dbPaths } from "@/config/db.paths";
 import { LoginInputDTO, SignUpInputDTO } from "@common/dto";
-import { Request, Response, UserEntity } from "@common/models";
+import { UserEntity } from "@common/models";
+import { Request, Response } from "express";
+import { Repositories } from "@/repositories/auth.repositories";
 import { OperationsAdapter } from "@/adapters/operations.adapter";
 import { Response as ResponseAdapter } from "@/adapters/response.adapter";
 
+const repositories = new Repositories()
 const responseAdapter = new ResponseAdapter();
 const operationsAdapter = new OperationsAdapter();
 const jwt_secret_key = process.env.JWT_SECRET as string;
@@ -13,11 +15,11 @@ const jwt_secret_key = process.env.JWT_SECRET as string;
 type AuthRow = UserEntity & { password: string };
 
 export class AuthController {
-  login(req: Request<LoginInputDTO>, res: Response<string>) {
-    const { email, password } = req.body;
+  login(req: Request, res: Response) {
+    const { email, password } = req.body as LoginInputDTO;
     operationsAdapter.query<AuthRow>(
       res,
-      `SELECT * FROM ${dbPaths.tables.auth} WHERE ${dbPaths.columns.auth.email} = ?`,
+      repositories.table(),
       async (result) => {
         if (result.length > 0) {
           const hashedPassword = result[0].password;
@@ -27,7 +29,6 @@ export class AuthController {
             const token = jwt.sign({ email }, jwt_secret_key, {
               expiresIn: "24h",
             });
-
             return responseAdapter.json<string>(res, token, { status: "ok" });
           } else {
             return responseAdapter.json<string>(res, "Wrong password", { status: "failed" });
@@ -36,25 +37,26 @@ export class AuthController {
           return responseAdapter.json<string>(res, "Not Found", { status: "failed" });
         }
       },
-      [email]
+      (q) => q.select('*').eq('email', email)
     );
   }
 
-  async signUp(req: Request<SignUpInputDTO>, res: Response<string>) {
+  async signUp(req: Request, res: Response) {
     const saltRounds = 10;
-    const { name, email, password } = req.body;
-
+    const { name, email, password } = req.body as SignUpInputDTO;
     const hashedPassword = await bcrypt.hash(password, saltRounds);
 
     operationsAdapter.query<SignUpInputDTO & { id: number }>(
       res,
-      `INSERT INTO ${dbPaths.tables.auth}
-        (${dbPaths.columns.auth.user}, ${dbPaths.columns.auth.email}, ${dbPaths.columns.auth.passwd})
-        VALUES (?, ?, ?)`,
+      repositories.table(),
       async (_result) => {
-        return responseAdapter.json<string>(res, "User created", { status: "ok" });
+        const token = jwt.sign({ email }, jwt_secret_key, {
+          expiresIn: "24h",
+        });
+
+        return responseAdapter.json<string>(res, token, { status: "ok" });
       },
-      [name, email, hashedPassword]
+      (q) => q.insert({ name, email, password: hashedPassword }).select()
     );
   }
 }

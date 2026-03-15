@@ -1,0 +1,14 @@
+.header {
+    top: 0;
+    left: 0;
+    height: 64px;
+    padding: 6px;
+    width: 100dvw;
+    display: flex;
+    position: fixed;
+    align-items: center;
+    z-index: 9999999909999999;
+    justify-content: space-between;
+    background-color: $background-default;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.15);
+}

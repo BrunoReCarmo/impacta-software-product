@@ -40,7 +40,7 @@ export class Response {
    * // Array with pagination metadata
    * adapter.json(res, [{ id: 1 }, { id: 2 }], { page: 1, pageSize: 10 });
    */
-  json<T>(res: ExpressResponse, data: T | T[], metadata?: Metadata) {
+  json<T>(res: ExpressResponse, data: T | T[], metadata?: Metadata, customStatus?: 500) {
     const isArray = Array.isArray(data);
     const total = isArray ? (data as T[]).length : undefined;
 
@@ -49,6 +49,13 @@ export class Response {
         success: false,
         error: "Response data is missing or invalid",
       });
+    }
+
+    if (customStatus) {
+      return res.status(customStatus).json({
+        success: false,
+        error: data
+      })
     }
 
     return res.json({

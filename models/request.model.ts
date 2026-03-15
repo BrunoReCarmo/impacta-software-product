@@ -5,5 +5,6 @@ export interface Query<T> {
 
 export interface Request<T> {
     query: Query<T>;
+    header: any;
     body?: Partial<T>;
 }

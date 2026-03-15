@@ -3,13 +3,14 @@ import { fetchSignUp } from './service';
 import { setCookie } from 'cookies-next';
 import { CookiesEnum } from '@common/enums'
 import { useMutation } from '@tanstack/react-query';
+import { Response } from '@common/models';
 
-export function useSignUp(externalSuccess: VoidFunction) {
-  function onSuccess(token: string) {
-    setCookie(CookiesEnum.Token, token, {
+export function useSignUp(externalSuccess?: VoidFunction) {
+  function onSuccess(data: Response<string>) {
+    setCookie(CookiesEnum.Token, data?.data, {
       sameSite: 'strict',
     });
-    externalSuccess()
+    externalSuccess?.()
   }
 
   function onError(error: AxiosError) {

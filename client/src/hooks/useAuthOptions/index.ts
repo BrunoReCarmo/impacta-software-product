@@ -4,7 +4,7 @@ import useSearchParams from "../useSearchParams";
 import { AuthType } from "@/components/Auth/Common/props";
 import { useLogin, useSignUp } from "@/api/auth/mutations";
 
-export default function useAuthOptions() {
+export default function useAuthOptions(externalSuccess?: VoidFunction) {
   const search = useSearchParams();
   
   const isRegister: boolean = useMemo(
@@ -12,12 +12,8 @@ export default function useAuthOptions() {
     [search]
   );
 
-  const { mutate: mutateSignUp, isPending: isPendingSignUp } = useSignUp(() =>
-    console.log("external")
-  );
-  const { mutate: mutateLogin, isPending: isPendingLogin } = useLogin(() =>
-    console.log("external")
-  );
+  const { mutate: mutateSignUp, isPending: isPendingSignUp } = useSignUp(externalSuccess);
+  const { mutate: mutateLogin, isPending: isPendingLogin } = useLogin(externalSuccess);
 
   const handleMutateAuth = useCallback(
     (data: AuthType) => {

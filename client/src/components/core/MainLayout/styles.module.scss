@@ -4,11 +4,13 @@
     margin-top: 76px;
     max-width: 100dvw;
     min-height: 100dvh;
+    justify-content: center;
     
     &__content {
         gap: 16px;
         left: 8px;
         display: flex;
+        max-width: 600px;
         position: relative;
         align-items: center;
         flex-direction: column;

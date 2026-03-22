@@ -23,7 +23,9 @@ export function useUserMe() {
     queryFn: fetchUserMe,
   });
 
-  const isAuthenticated = token && data?.name && !isPending;
+  const isAuthenticated: boolean = !!token && Boolean(data?.name) && !isPending;
+
+  console.log(isAuthenticated, !!token, Boolean(data?.name), !isPending)
 
   return {
     user: data,

@@ -4,4 +4,7 @@ export class Repositories {
     table(): string {
         return dbPaths.tables.auth;
     }
+    PostTags(): string {
+        return dbPaths.tables.pubTags;
+    }
 }

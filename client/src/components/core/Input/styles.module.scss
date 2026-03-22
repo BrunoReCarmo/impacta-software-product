@@ -18,4 +18,12 @@
     // color: $primary-contrast-text;
     // border-color: 1px solid  !important;
     // transition: all 0.25s ease-in-out;
+
+    &--text {
+        height: auto;
+        max-width: 100%;
+        white-space: pre-wrap;
+        overflow-wrap: break-word;
+        word-break: break-word;
+      }
 }

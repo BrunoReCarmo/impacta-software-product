@@ -1,9 +1,7 @@
 import { UserChipProps } from "./props";
 import styles from "./styles.module.scss";
-import { useUserMe } from "@/api/user/useUserMe";
 
-export default function UserChip({onlyPic = false}: UserChipProps) {
-  const { user } = useUserMe();
+export default function UserChip({user, onlyPic = false}: UserChipProps) {
 
     return (
       <div className={styles.user}>

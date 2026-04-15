@@ -1,3 +1,4 @@
 export enum PostsQueryKey {
-    PostsTag = 'posts/tag'
+    PostsTag = 'posts/tag',
+    Posts = 'posts',
 }

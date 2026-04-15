@@ -1,4 +1,4 @@
-import { PostsQueryKey } from '../queryKeys';
+import { PostsQueryKey } from '../../queryKeys';
 
 export type UseFetchPostsTagQueryKeyProps = [
   PostsQueryKey.PostsTag

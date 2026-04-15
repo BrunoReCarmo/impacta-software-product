@@ -1,3 +1,6 @@
+import { UserEntity } from "@common/models";
+
 export interface UserChipProps {
-    onlyPic?: boolean
+    onlyPic?: boolean,
+    user?: UserEntity
 }

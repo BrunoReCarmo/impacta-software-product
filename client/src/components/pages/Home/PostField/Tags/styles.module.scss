@@ -1,0 +1,31 @@
+.container {
+    gap: 16px;
+    width: 100%;
+    display: flex;
+
+    &__tag {
+        padding: 8px;
+        cursor: pointer;
+        font-size: 12px;
+        overflow: hidden;
+        position: relative;
+        width: fit-content;
+        border-radius: $border-radius;
+        border: 1px solid var(--custom-color);
+
+        &--selected {
+            background-color: var(--custom-color);
+        }
+
+        &:after {
+            content: "";
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0.2;
+            position: absolute;
+            background-color: var(--custom-color);
+        }
+    }
+}

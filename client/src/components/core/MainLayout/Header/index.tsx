@@ -4,12 +4,12 @@ import styles from "./styles.module.scss";
 import { useUserMe } from "@/api/user/useUserMe";
 
 export function Header() {
-  const { isAuthenticated } = useUserMe();
+  const { isAuthenticated, user } = useUserMe();
 
   if (isAuthenticated) {
     return (
       <header className={styles.header}>
-        <UserChip />
+        <UserChip user={user} />
         <Logout />
       </header>
     );

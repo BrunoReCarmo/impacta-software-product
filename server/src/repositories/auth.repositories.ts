@@ -7,4 +7,10 @@ export class Repositories {
     PostTags(): string {
         return dbPaths.tables.pubTags;
     }
+    Post(): string {
+        return dbPaths.tables.posts;
+    }
+    PostTagRelations(): string {
+        return dbPaths.tables.postTagRelations;
+    }
 }

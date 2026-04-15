@@ -1,7 +1,7 @@
 import { AxiosError } from "axios";
 import { fetchPostsTag } from "./service";
 import { PostTagsEntity } from "@common/models";
-import { PostsQueryKey } from "../queryKeys";
+import { PostsQueryKey } from "../../queryKeys";
 import { useQuery } from "@tanstack/react-query";
 import { UseFetchPostsTagQueryKeyProps } from "./props";
 import { useUserMe } from "@/api/user/useUserMe";
